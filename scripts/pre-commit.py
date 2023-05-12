@@ -8,9 +8,7 @@ import subprocess
 def gitleaksEnabled():
     """Determine if the pre-commit hook for gitleaks is enabled."""
     out = subprocess.getoutput("git config --bool hooks.gitleaks")
-    if out == "false":
-        return False
-    return True
+    return out != "false"
 
 
 if gitleaksEnabled():
